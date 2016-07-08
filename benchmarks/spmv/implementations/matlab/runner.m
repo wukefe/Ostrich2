@@ -1,9 +1,12 @@
 function runner(dim,density,normal_stdev,iterations)
-% Example: runner(5000,2000,0.01,100);
+% Example: runner_loop(5000,2000,0.01,100);
 % random seed
-s = RandStream('mcg16807','Seed',10000);
-% RandStream.setDefaultStream(s);
-RandStream.setGlobalStream(s);
+
+% feature accel off;
+%s = RandStream('mcg16807','Seed',10000);
+%RandStream.setGlobalStream(s);
+%rng(10000);
+rand("seed",10000); %octave
 
 % rand_csr
 csr_num_rows     = dim;
@@ -24,9 +27,9 @@ if update_interval == 0
 end
 
 for i = 1:csr_num_rows
-    %if mod(i, update_interval) == 0
-    %    disp(sprintf('\t%d of %d (%5.1f%%) Rows Generated. Continuing...\n',i,csr_num_rows,i/csr_num_rows*100));
-    %end
+    if mod(i, update_interval) == 0
+        disp(sprintf('\t%d of %d (%5.1f%%) Rows Generated. Continuing...\n',i,csr_num_rows,i/csr_num_rows*100));
+    end
     nnz_ith_row_double  = randn() * csr_stddev + csr_nz_per_row;
     if nnz_ith_row_double < 0
         nnz_ith_row = 0;
@@ -69,13 +72,14 @@ end
 % the end of rand_csr
 
 vec = rand(1,dim);
+
 tic
 for i = 1:iterations
     res = spmv_core(dim,csr_num_rows,csr_Ap,csr_Ax,csr_Aj,vec);
 end
 elapsedTime = toc;
 
-disp(sprintf('The first value of the result is %f\n', res(1)));
+%disp(sprintf('The first value of the result is %f\n', res(1)));
 msg = sprintf('{ \"status\": %d, \"options\": \"-n %d -d %d -s %f\", \"time\": %f }\n', 1, dim, density, normal_stdev, elapsedTime);
 disp(msg);
 

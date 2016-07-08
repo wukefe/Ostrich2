@@ -35,3 +35,5 @@ end % if
 for j=1:(n+1)
     PNxxa(:,j)=PNxxa(:,j)*sqrt( j-1/2);
 end % j
+
+end

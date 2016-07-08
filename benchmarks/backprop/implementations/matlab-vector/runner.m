@@ -1,5 +1,7 @@
 function runner(layer_size)
 % Example: runner(2850000);
+% feature accel off;
+addpath('/Users/wukefe/Documents/GitHub/wu/Ostrich2/implementations/matlab/lib');
 
 sum_of_hidden_weights = 0;
 expected_sum_of_hidden_weights = 10.855641469359398;
@@ -12,8 +14,9 @@ hid= hidden_n + 1;
 out= output_n + 1;
 
 % set rand seed
-s = RandStream('mcg16807','Seed',49734321);
-RandStream.setGlobalStream(s);
+%s = RandStream('mcg16807','Seed',49734321);
+%RandStream.setGlobalStream(s);
+rand("seed", 49734321);
 
 % bpnn_create
 n_in     = input_n + 1;
@@ -23,7 +26,7 @@ input_weights       = createMatrixRandJS( in, hid); %rand
 hidden_weights      = createMatrixRandJS(hid, out); %rand
 input_prev_weights  = zeros(in, hid);
 hidden_prev_weights = zeros(hid, out);
-target              = ones(1,out); %vector
+target              = ones(1,out) * 0.1; %vector
 hidden_units = zeros(1,hid);
 output_units = zeros(1,out);
 hidden_delta = zeros(1,hid);
@@ -33,9 +36,10 @@ output_delta = zeros(1,out);
 nr = in;
 %input_units = createMatrixRandJS(1, nr); %C skips [0]
 input_units = zeros(1, nr);
-for i=2:nr
-    input_units(i) = commonRandomJS(); %rand
-end
+input_units(2:nr) = createMatrixRandJS(1, nr-1);
+%for i=2:nr
+%    input_units(i) = commonRandomJS(); %rand
+%end
 
 %hidden_weights
 
@@ -48,12 +52,14 @@ elapsedTime  = toc;
 %hidden_weights
 
 if layer_size == expected_layer_size
-    for i=1:hidden_n+1
-        for j=1:output_n+1
+    for i=2:hidden_n+1
+        for j=2:output_n+1
             sum_of_hidden_weights = sum_of_hidden_weights + hidden_weights(i,j);
         end
     end
-    if hidden_weights ~= expected_sum_of_hidden_weights
+    valueA = floor(sum_of_hidden_weights*10e5);
+    valueB = floor(expected_sum_of_hidden_weights*10e5);
+    if valueA ~= valueB
         error('ERROR: expected a sum of hidden weights of %f for an input size of %d but got %f instead\n',...
             expected_sum_of_hidden_weights, expected_layer_size, sum_of_hidden_weights);
     end

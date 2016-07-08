@@ -1,6 +1,6 @@
 function runner(n, iter, thresh, divisor)
 % Example: runner(3000,10,0.00000001,100000);
-    libpath = '/Users/wukefe/Documents/GitHub/wu/Ostrich2/benchmarks/pagerank/implementations/matlab-vector';
+    libpath = '/Users/wukefe/Documents/GitHub/wu/Ostrich2/implementations/matlab/lib/';
     fprintf(2, 'Running page rank\n');
     % random_pages
     if divisor < 1

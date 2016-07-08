@@ -1,8 +1,11 @@
 function runner_loop(dim,density,normal_stdev,iterations)
 % Example: runner_loop(5000,2000,0.01,100);
 % random seed
-s = RandStream('mcg16807','Seed',10000);
-RandStream.setGlobalStream(s);
+
+% feature accel off;
+%s = RandStream('mcg16807','Seed',10000);
+%RandStream.setGlobalStream(s);
+setRandomSeed();
 
 % rand_csr
 csr_num_rows     = dim;

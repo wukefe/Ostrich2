@@ -4,6 +4,7 @@
   "description": "Matlab implementation for lgdr",
   "language": "matlab",
   "core-source-files":[
+    { "file": "./lgdr.m" },
     { "file": "./PN_Legendre_vectN.m" },
     { "file": "./PNx_Legendre_vectN.m" },
     { "file": "./PNxx_Legendre_vectN.m" }

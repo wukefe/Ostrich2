@@ -252,6 +252,7 @@ int nj;
         t = target[j];
         delta[j] = o * (1.0 - o) * (t - o);
         errsum += ABS(delta[j]);
+        printf("o = %f, t = %f, err = %f\n", o,t,errsum);
     }
     *err = errsum;
 }

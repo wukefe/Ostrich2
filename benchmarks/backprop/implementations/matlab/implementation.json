@@ -17,7 +17,6 @@
     "libraries":[
        { "suite-root": "/implementations/matlab/setRandomSeed.m" },
        { "suite-root": "/implementations/matlab/commonRandom.m" },
-       { "suite-root": "/implementations/matlab/commonRandomJS.m" },
-       { "suite-root": "/implementations/matlab/createMatrixRandJS.m" }
+       { "suite-root": "/implementations/matlab/commonRandomJS.m" }
     ]
 }

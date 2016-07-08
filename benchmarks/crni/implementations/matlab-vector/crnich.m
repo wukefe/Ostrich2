@@ -1,77 +1,77 @@
 function [U] = crnich(a, b, c, n, m)
 %-----------------------------------------------------------------------
 %
-%   This function M-file finds the Crank-Nicholson solution
-%   to the one-dimensional heat equation
+%	This function M-file finds the Crank-Nicholson solution
+%	to the one-dimensional heat equation
 %
-%                   2
-%           u (x, t)=c u  (x, t).
-%            t        xx
+%				    2
+%			u (x, t)=c u  (x, t).
+%			 t	      xx
 %
-%   The function u(x, t) denotes the temperature in a
-%   one-dimensional metal rod as a function of both the
-%   displacement x and the time t. The expression c^2 is the
-%   thermal conductivity constant. The subscript t indicates
-%   the partial derivative of u(x, t) with respect to time.
-%   The subscript xx indicates the second partial derivative of
-%   u(x, t) with respect to displacement.
+%	The function u(x, t) denotes the temperature in a
+%	one-dimensional metal rod as a function of both the
+%	displacement x and the time t. The expression c^2 is the
+%	thermal conductivity constant. The subscript t indicates
+%	the partial derivative of u(x, t) with respect to time.
+%	The subscript xx indicates the second partial derivative of
+%	u(x, t) with respect to displacement.
 %
-%   The one-dimensional heat equation can be solved under a
-%   variety of boundary conditions. This program considers
-%   the following:
+%	The one-dimensional heat equation can be solved under a
+%	variety of boundary conditions. This program considers
+%	the following:
 %
-%       u(x, 0)=sin(pi*x)+sin(3*pi*x) for 0 < x < a,
+%		u(x, 0)=sin(pi*x)+sin(3*pi*x) for 0 < x < a,
 %
-%       u(0, t)=0, and u(a, t)=0 for 0 <= t <= b,
+%		u(0, t)=0, and u(a, t)=0 for 0 <= t <= b,
 %
-%   where a is the length of the rod, and b is the time duration.
+%	where a is the length of the rod, and b is the time duration.
 %
-%   For a concise background on the one-dimensional heat equation,
-%   see "Modelling: Derivation of the Heat Equation" at
-%   http://www-solar.mcs.st-and.ac.uk/~alan/MT2003/PDE/node20.html.
+%	For a concise background on the one-dimensional heat equation,
+%	see "Modelling: Derivation of the Heat Equation" at
+%	http://www-solar.mcs.st-and.ac.uk/~alan/MT2003/PDE/node20.html.
 %
-%   Invocation:
-%       >> U=crnich(a, b, c, n, m)
+%	Invocation:
+%		>> U=crnich(a, b, c, n, m)
 %
-%       where
+%		where
 %
-%       i. a is the length of the metal rod,
+%		i. a is the length of the metal rod,
 %
-%       i. b is the time duration,
+%		i. b is the time duration,
 %
-%       i. c is the square root of the thermal
-%          conductivity constant in the heat equation,
+%		i. c is the square root of the thermal
+%		   conductivity constant in the heat equation,
 %
-%       i. n is the number of grid points over [0, a],
+%		i. n is the number of grid points over [0, a],
 %
-%       i. m is the number of grid points over [0, b],
+%		i. m is the number of grid points over [0, b],
 %
-%       o. U is the solution matrix.
+%		o. U is the solution matrix.
 %
-%   Requirements:
-%       None.
+%	Requirements:
+%		None.
 %
-%   Examples:
-%       >> U=crnich(2.5, 1.5, 2, 321, 321)
+%	Examples:
+%		>> U=crnich(2.5, 1.5, 2, 321, 321)
 %
-%   Source:
-%       Numerical Methods: MATLAB Programs,
-%       (c) John H. Mathews, 1995.
+%	Source:
+%		Numerical Methods: MATLAB Programs,
+%		(c) John H. Mathews, 1995.
 %
-%       Accompanying text:
-%       Numerical Methods for Mathematics, Science and
-%       Engineering, 2nd Edition, 1992.
+%		Accompanying text:
+%		Numerical Methods for Mathematics, Science and
+%		Engineering, 2nd Edition, 1992.
 %
-%       Prentice Hall, Englewood Cliffs,
-%       New Jersey, 07632, USA.
+%		Prentice Hall, Englewood Cliffs,
+%		New Jersey, 07632, USA.
 %
-%       Also part of the FALCON project.
+%		Also part of the FALCON project.
 %
-%   Author:
-%       John H. Mathews (mathews@fullerton.edu).
+%	Author:
+%		John H. Mathews (mathews@fullerton.edu).
 %
-%   Date:
-%       March 1995.
+%	Date:
+%		March 1995.
 %
 %-----------------------------------------------------------------------
   C_PI = 3.14159265358979323846;
@@ -103,19 +103,19 @@ function [U] = crnich(a, b, c, n, m)
   [mc_t150] = minus(n, mc_t178);
   mc_t183 = 2;
   [i1] = colon(mc_t183, mc_t150);
+  [mc_t148] = times(C_PI, h);
+  mc_t182 = 1;
+  mc_t181 = 1;
+  mc_t180 = 3;
   mc_t179 = 1;
   mc_t146 = h;
-  mc_t180 = 3;
-  mc_t181 = 1;
-  mc_t182 = 1;
-  [mc_t148] = times(C_PI, h);
-  [mc_t149] = minus(i1, mc_t179);
   [mc_t144] = minus(i1, mc_t181);
   [mc_t145] = times(mc_t180, C_PI);
+  [mc_t149] = minus(i1, mc_t179);
   [mc_t143] = times(mc_t145, mc_t146);
   [mc_t147] = times(mc_t148, mc_t149);
-  [mc_t140] = sin(mc_t147);
   [mc_t142] = times(mc_t143, mc_t144);
+  [mc_t140] = sin(mc_t147);
   [mc_t141] = sin(mc_t142);
   [mc_t124] = plus(mc_t140, mc_t141);
   U(i1, mc_t182) = mc_t124;
@@ -158,23 +158,23 @@ function [U] = crnich(a, b, c, n, m)
     [mc_t169] = minus(n, mc_t200);
     mc_t206 = 2;
     [i1] = colon(mc_t206, mc_t169);
-    mc_t202 = 1;
-    mc_t203 = 1;
     mc_t161 = i1;
-    mc_t159 = s2;
+    mc_t202 = 1;
     mc_t201 = 1;
     mc_t204 = 1;
+    mc_t159 = s2;
+    mc_t203 = 1;
     mc_t205 = 1;
-    [mc_t167] = minus(i1, mc_t201);
-    [mc_t166] = minus(j1, mc_t204);
     [mc_t162] = minus(j1, mc_t205);
+    [mc_t166] = minus(j1, mc_t204);
     [mc_t168] = minus(j1, mc_t202);
+    [mc_t167] = minus(i1, mc_t201);
     [mc_t165] = plus(i1, mc_t203);
-    [mc_t160] = U(mc_t161, mc_t162);
-    [mc_t164] = U(mc_t165, mc_t166);
     [mc_t163] = U(mc_t167, mc_t168);
-    [mc_t158] = times(mc_t159, mc_t160);
+    [mc_t164] = U(mc_t165, mc_t166);
+    [mc_t160] = U(mc_t161, mc_t162);
     [mc_t157] = plus(mc_t163, mc_t164);
+    [mc_t158] = times(mc_t159, mc_t160);
     [mc_t125] = plus(mc_t157, mc_t158);
     Vb(i1) = mc_t125;
     [X] = tridiagonal(Va, Vd, Vc, Vb, n);
@@ -188,48 +188,48 @@ end
 function [X] = tridiagonal(A, D, C, B, n)
 %-----------------------------------------------------------------------
 %
-%   This function M-file finds the solution of a tridiagonal
-%   linear system. It is assumed that D and B have dimension
-%   n, and that A and C have dimension n-1.
+%	This function M-file finds the solution of a tridiagonal
+%	linear system. It is assumed that D and B have dimension
+%	n, and that A and C have dimension n-1.
 %
-%   Invocation:
-%       >> X=tridiagonal(A, D, C, B)
+%	Invocation:
+%		>> X=tridiagonal(A, D, C, B)
 %
-%       where
+%		where
 %
-%       i. A is a subdiagonal row vector,
+%		i. A is a subdiagonal row vector,
 %
-%       i. D is a diagonal row vector,
+%		i. D is a diagonal row vector,
 %
-%       i. C is the superdiagonal row vector,
+%		i. C is the superdiagonal row vector,
 %
-%       i. B is the right-hand side row vector,
+%		i. B is the right-hand side row vector,
 %
-%       o. X is the solution row vector.
+%		o. X is the solution row vector.
 %
-%   Requirements:
-%       None.
+%	Requirements:
+%		None.
 %
-%   Examples:
-%       >> X=tridiagonal([1, 2, 3], [1, 2, 3, 4], ...
-%       [1, 2, 3], [1, 2, 3, 4])
+%	Examples:
+%		>> X=tridiagonal([1, 2, 3], [1, 2, 3, 4], ...
+%		[1, 2, 3], [1, 2, 3, 4])
 %
-%   Source:
-%       Numerical Methods: MATLAB Programs,
-%       (c) John H. Mathews, 1995.
+%	Source:
+%		Numerical Methods: MATLAB Programs,
+%		(c) John H. Mathews, 1995.
 %
-%       Accompanying text:
-%       Numerical Methods for Mathematics, Science and
-%       Engineering, 2nd Edition, 1992.
+%		Accompanying text:
+%		Numerical Methods for Mathematics, Science and
+%		Engineering, 2nd Edition, 1992.
 %
-%       Prentice Hall, Englewood Cliffs,
-%       New Jersey, 07632, USA.
+%		Prentice Hall, Englewood Cliffs,
+%		New Jersey, 07632, USA.
 %
-%   Author:
-%       John H. Mathews (mathews@fullerton.edu).
+%	Author:
+%		John H. Mathews (mathews@fullerton.edu).
 %
-%   Date:
-%       March 1995.
+%	Date:
+%		March 1995.
 %
 %-----------------------------------------------------------------------
 % n=size(B, 2);
@@ -271,9 +271,9 @@ function [X] = tridiagonal(A, D, C, B, n)
   [mc_t237] = uminus(mc_t245);
   mc_t247 = 1;
   [k] = colon(mc_t236, mc_t237, mc_t247);
-  mc_t246 = 1;
   [mc_t233] = C(k);
   [mc_t230] = D(k);
+  mc_t246 = 1;
   [mc_t231] = B(k);
   [mc_t235] = plus(k, mc_t246);
   [mc_t234] = X(mc_t235);

@@ -9,19 +9,19 @@
             "dimensions": 10000,
             "density": 100,
             "standard-deviation": 0.01,
-            "iterations": 1
+            "iterations": 200
         },
         "medium": {
+            "dimensions": 15000,
+            "density": 100,
+            "standard-deviation": 0.01,
+            "iterations": 200
+        },
+        "large": {
             "dimensions": 20000,
             "density": 100,
             "standard-deviation": 0.01,
-            "iterations": 100
-        },
-        "large": {
-            "dimensions": 30000,
-            "density": 100,
-            "standard-deviation": 0.01,
-            "iterations": 100
+            "iterations": 200
         }
     },
     "random-seed":1337,

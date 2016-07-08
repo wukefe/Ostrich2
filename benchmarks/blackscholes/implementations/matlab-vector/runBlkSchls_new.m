@@ -16,16 +16,17 @@ function [elapsedTime] = runBlkSchls_new(numOptions, otype, sptprice, strike, ra
 %CALL SYSTEM_CLOCK(count1, count_rate, count_max)
   tic(); % [] = ...
 % [] = ...
+% [] = ...
 %tic()
   mc_t72 = 1;
   [i] = colon(mc_t72, numOptions);
-  [mc_t63] = sptprice(i);
+  [mc_t68] = otype(i);
   [mc_t67] = otime(i);
   mc_t71 = 0;
-  [mc_t68] = otype(i);
-  [mc_t64] = strike(i);
   [mc_t65] = rate(i);
   [mc_t66] = volatility(i);
+  [mc_t63] = sptprice(i);
+  [mc_t64] = strike(i);
   [mc_t62] = BlkSchls(mc_t63, mc_t64, mc_t65, mc_t66, mc_t67, mc_t68, mc_t71);
   prices(i) = mc_t62;
   [elapsedTime] = toc();

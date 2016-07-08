@@ -51,6 +51,8 @@ elseif v_model == 't'
     elapsedTime = toc;
 end
 
-msg = sprintf('Observations \tTime \tLog_likelihood \tErrocode\n\t\t\t\t%f\t%f\t%d\n',elapsedTime,log_lik,errcode);
-disp(msg);
+% msg = sprintf('Observations \tTime \tLog_likelihood \tErrocode\n\t\t\t\t%f\t%f\t%d\n',elapsedTime,log_lik,errcode);
+% disp(msg);
+fprintf('{ \"status\": %d, \"logLikelihood\": \"%f\", \"errcode\": \"%d\", \"time\": %f }\n', 1, log_lik, errcode, elapsedTime);
+
 end

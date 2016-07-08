@@ -5,9 +5,9 @@
    "description":"Performs the Fast Fourier Transform (FFT) function on a random data set.",
    "version":"0.1.0",
    "input-size":{
-      "small": 4,
-      "medium": 10,
-      "large": 13
+      "small": 7,
+      "medium": 8,
+      "large": 9
    },
    "random-seed":1337,
    "dwarf": "spectral methods"

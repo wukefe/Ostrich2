@@ -1,6 +1,7 @@
 function [pageRanks,t,maxDiff] = pagerank(iter,thresh,pages,noutlinks,pageRanks,n)
 maxDiff   = 99;
 dFactor   = 0.85;
+maps = zeros(n,n);
 
 for t = 1:iter
     if maxDiff < thresh
@@ -13,6 +14,7 @@ for t = 1:iter
            maps(i,k) = pages(i,k) * outbounRank;
        end
     end
+    disp('a')
     % reduce_page_rank
     dif = 0;
     for j = 1:n
@@ -26,5 +28,6 @@ for t = 1:iter
         pageRanks(j) = newRank;
     end
     maxDiff = dif;
+    disp('b')
 end
 end

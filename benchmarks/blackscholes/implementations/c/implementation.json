@@ -21,9 +21,9 @@
         }
     ],
     "libraries":[
-        {"file": "./optionData.txt"}
     ],
     "include-directories":[
-        { "suite-root": "/implementations/c/"}
+        { "suite-root": "/implementations/c/"},
+        {"file": "./optionData.txt"}
     ]
 }

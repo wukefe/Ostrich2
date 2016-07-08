@@ -6,7 +6,7 @@
    "version":"0.1.0",
    "input-size":{
       "small": {
-        "dimensions": 128,
+        "dimensions": 2048,
         "penalty": 1
       },
       "medium": {

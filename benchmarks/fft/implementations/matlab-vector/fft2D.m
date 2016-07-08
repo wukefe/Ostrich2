@@ -10,10 +10,10 @@ function [rtnR, rtnI] = fft2D(xR, xI, N)
     [resR, resI] = fftSimple(mc_t91, mc_t92, mc_t93);
     mc_t97 = 1;
     [k] = colon(mc_t97, N);
-    [mc_t87] = resR(k);
-    rtnR(i, k) = mc_t87;
     [mc_t88] = resI(k);
     rtnI(i, k) = mc_t88;
+    [mc_t87] = resR(k);
+    rtnR(i, k) = mc_t87;
   end
   [rtnR] = transpose(rtnR);
   [rtnI] = transpose(rtnI);
@@ -25,10 +25,10 @@ function [rtnR, rtnI] = fft2D(xR, xI, N)
     [resR, resI] = fftSimple(mc_t94, mc_t95, mc_t96);
     mc_t99 = 1;
     [k] = colon(mc_t99, N);
-    [mc_t89] = resR(k);
-    rtnR(i, k) = mc_t89;
     [mc_t90] = resI(k);
     rtnI(i, k) = mc_t90;
+    [mc_t89] = resR(k);
+    rtnR(i, k) = mc_t89;
   end
   [rtnR] = transpose(rtnR);
   [rtnI] = transpose(rtnI);

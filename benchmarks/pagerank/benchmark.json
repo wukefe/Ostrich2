@@ -6,20 +6,20 @@
 "version":"0.1.0",
    "input-size":{
       "small": { 
-          "nb-pages": 10,
-          "nb-iterations": 10,
+          "nb-pages": 500,
+          "nb-iterations": 200,
           "threshold": 1e-08,
           "divisor": 100000
       },
       "medium": {
-          "nb-pages": 5000,
-          "nb-iterations": 10,
+          "nb-pages": 1000,
+          "nb-iterations": 200,
           "threshold": 1e-08,
           "divisor": 100000
       },
       "large": {
-          "nb-pages": 14000,
-          "nb-iterations": 10,
+          "nb-pages": 2000,
+          "nb-iterations": 200,
           "threshold": 1e-08,
           "divisor": 100000
       }

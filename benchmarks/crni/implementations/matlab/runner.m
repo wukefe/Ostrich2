@@ -4,13 +4,13 @@ function runner(scale)
 %% one-dimensional heexitat equation.
 %%
 
-%t1=clock;
+% feature accel off;
 
 a=2.5; % a=rand*3;
 b=1.5; % b=1.5;
 c=5; % c=2;
-m=2300; %321; % n=floor(rand*1389);
-n=2300; %321; % n=floor(rand*529);
+m=300; %321; % n=floor(rand*1389);
+n=300; %321; % n=floor(rand*529);
 
 tic();
 for time=1:scale

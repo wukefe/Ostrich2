@@ -9,6 +9,13 @@
     "runner-arguments": [
         { "expand": "/experiment/input-size" }
     ],
+    "libraries":[
+        { "suite-root": "/implementations/c/common_rand.c" },
+        { "suite-root": "/implementations/c/common.c" }
+    ],
+    "include-directories":[
+        { "suite-root": "/implementations/c/" }
+    ],
     "runner-argument-types": [
         "'DOUBLE&1*1&REAL'"
     ]

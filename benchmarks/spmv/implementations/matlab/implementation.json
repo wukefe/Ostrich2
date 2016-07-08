@@ -4,9 +4,7 @@
     "description":"Matlab port of C implementation",
     "language":"matlab",
     "core-source-files":[
-       { "file": "./spmv_core.m"},
-       { "file": "./runner_loop.m"},
-       { "file": "./spmv_core_loop.m"}
+       { "file": "./spmv_core.m"}
     ],
     "runner-source-file": { "file": "./runner.m" },
     "runner-arguments": [

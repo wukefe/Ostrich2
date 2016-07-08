@@ -1,8 +1,12 @@
-function runner_loop(dim,density,normal_stdev,iterations)
+function runner(dim,density,normal_stdev,iterations)
 % Example: runner_loop(5000,2000,0.01,100);
 % random seed
-s = RandStream('mcg16807','Seed',10000);
-RandStream.setGlobalStream(s);
+
+% feature accel off;
+%s = RandStream('mcg16807','Seed',10000);
+%RandStream.setGlobalStream(s);
+%rng(10000);
+rand("seed",10000); %octave
 
 % rand_csr
 csr_num_rows     = dim;
@@ -70,7 +74,7 @@ end
 vec = rand(1,dim);
 tic
 for i = 1:iterations
-    res = spmv_core_loop(dim,csr_num_rows,csr_Ap,csr_Ax,csr_Aj,vec);
+    res = spmv_core(dim,csr_num_rows,csr_Ap,csr_Ax,csr_Aj,vec);
 end
 elapsedTime = toc;
 

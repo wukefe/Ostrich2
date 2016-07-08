@@ -2,7 +2,7 @@
 	"type": "environment",
 	"short-name": "octave",
 	"name": "Octave Virtual Machine",
-	"version": "3.8.1",
+	"version": "4.0.0",
 	"supported-languages": ["matlab"],
 	"supported-formats": ["text"],
 	"implementation-language": "x86",

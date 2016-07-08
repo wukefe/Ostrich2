@@ -9,6 +9,7 @@
 #include <string.h>
 #include <math.h>
 #include <complex.h>
+#include <common.h>
 
 #define c_mean(a,b) (((a)+(b))/2)
 #define pi 3.14159265358979323846
@@ -101,6 +102,8 @@ int main(int argc, char** argv){
     double slitsize2 = 1e-5;
     int t1 = 1, t2 = 0, scale = 0;
     int debug = 0;
+    stopwatch sw;
+    double elapsed_time = 0;
 
     if(argc == 2){
         scale = atoi(argv[1]);
@@ -110,14 +113,17 @@ int main(int argc, char** argv){
         exit(99);
     }
 
-    // tic
+    stopwatch_start(&sw);
     for(int i=0;i<scale;i++){
         struct c_mag *m = alloc_mag();
         diffraction(cells, slitsize1, slitsize2, t1, t2, m);
         if(debug) print_mag(m);
         release_mag(m);
     }
-    // toc;
-    // print elapsedTime
+    stopwatch_stop(&sw);
+    
+    elapsed_time = get_interval_by_sec(&sw);
+
+    printf("{ \"status\": %d, \"time\": %f }\n", 1, elapsed_time);
     return 0;
 }

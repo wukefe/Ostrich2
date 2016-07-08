@@ -1,12 +1,14 @@
 function [answer, reference] = needle(penalty, max_rows, max_cols, input_seq_1, input_seq_2, reference, input_itemsets, blosum62)
   mc_t72 = 2;
-  [i] = colon(mc_t72, max_cols);
-  mc_t71 = 2;
-  [mc_t48] = input_seq_1(i);
-  [j] = colon(mc_t71, max_rows);
-  [mc_t47] = input_seq_2(j);
-  [mc_t43] = blosum62(mc_t47, mc_t48);
-  reference(i, j) = mc_t43;
+  for i = (mc_t72 : max_cols);
+    mc_t71 = 2;
+    for j = (mc_t71 : max_rows);
+      [mc_t47] = input_seq_2(j);
+      [mc_t48] = input_seq_1(i);
+      [mc_t43] = blosum62(mc_t47, mc_t48);
+      reference(i, j) = mc_t43;
+    end
+  end
   mc_t75 = 2;
   [i] = colon(mc_t75, max_rows);
   mc_t73 = 1;
