@@ -1,0 +1,10 @@
+{
+	"type": "experiment",
+    "short-name": "mc2mc-medium-octave",
+	"iteration-number": 5,
+	"input-size": "medium",
+	"configuration": {
+        "benchmarks": ["backprop", "blackscholes", "capr",  "crni", "fft", "lgdr", "nw", "pagerank", "spmv"],
+	    "compilers": ["octave"]
+	}
+}
